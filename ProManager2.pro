@@ -5,6 +5,8 @@
 #-------------------------------------------------
 
 QT       += core gui
+INCLUDEPATH += /usr/include/qwt-qt4
+LIBS += -L/usr/lib -lqwt-qt4
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
