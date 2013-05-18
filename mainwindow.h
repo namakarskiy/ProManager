@@ -2,7 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QDebug>
+
+#include <QTimer>
+#include "sysinfothread.h"
 
 
 
@@ -25,11 +27,12 @@ class MainWindow : public QMainWindow
 private:
     Ui::MainWindow *ui;
     QTimer* sysInfoTimer;
-    QTimer* ProcessListTimer;
+    sysInfoThread* sysThread;
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    
+
+
 
 };
 

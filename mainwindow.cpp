@@ -23,10 +23,18 @@ MainWindow::MainWindow(QWidget *parent) :
         item->setText(1,"qwed"+QString::number(i));
         ui->treeWidget->setItemExpanded(item,true);
     }
-    //ui->treeWidget->s;
+
+    sysInfoThread *sysThread = new sysInfoThread();
+    sysThread->start();
+
+
+
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+
+     delete ui;
 }
+
+

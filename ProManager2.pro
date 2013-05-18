@@ -15,8 +15,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    sysinfothread.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    sysinfothread.h
 
 FORMS    += mainwindow.ui
