@@ -1,0 +1,4 @@
+#ifndef THREADSCONFIG_H
+#define THREADSCONFIG_H
+
+#endif // THREADSCONFIG_H

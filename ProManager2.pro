@@ -16,9 +16,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    sysinfothread.cpp
+    sysinfothread.cpp \
+    processlist.cpp
 
 HEADERS  += mainwindow.h \
-    sysinfothread.h
+    sysinfothread.h \
+    processlist.h \
+    ThreadsConfig.h
 
 FORMS    += mainwindow.ui

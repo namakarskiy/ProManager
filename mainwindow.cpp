@@ -24,8 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->treeWidget->setItemExpanded(item,true);
     }
 
-    sysInfoThread *sysThread = new sysInfoThread();
-    sysThread->start();
+
 
 
 

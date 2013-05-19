@@ -3,9 +3,12 @@
 sysInfoThread::sysInfoThread(QObject *parent) :
     QThread(parent)
 {
-    sysInfoTimer = new QTimer(this);
+    mutex.lock();
+    sysInfoTimer = new QTimer();
     connect(sysInfoTimer,SIGNAL(timeout()),
-            this,SLOT(getSystemInfo()));
+            this,SLOT(getSystemInfo()),Qt::DirectConnection);
+    qDebug()<<"sysinfoTHread started";
+    mutex.unlock();
 }
 
 void sysInfoThread::run()
@@ -16,13 +19,18 @@ void sysInfoThread::run()
 
 sysInfoThread::~sysInfoThread()
 {
-    this->exit(0);
-    this->deleteLater();
+   mutex.lock();
+   this->exit(0);
+   delete sysInfoTimer;
+   this->deleteLater();
+   mutex.unlock();
 }
 
 void sysInfoThread::getSystemInfo()
 {
+    mutex.lock();
     qDebug()<<"ololol";
+    mutex.unlock();
 }
 
 
