@@ -10,6 +10,8 @@ class sysInfoThread : public QThread
 private:
     QTimer* sysInfoTimer;
     QMutex mutex;
+ public:
+    SystemInfo *inf;
 
 public:
     explicit sysInfoThread(QObject *parent = 0);

@@ -5,8 +5,8 @@
 #-------------------------------------------------
 
 QT       += core gui
-INCLUDEPATH += /usr/include/qwt-qt4
-LIBS += -L/usr/lib -lqwt-qt4
+INCLUDEPATH += /usr/include/qwt
+LIBS += -L/usr/lib -lqwt
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,13 +18,15 @@ SOURCES += main.cpp\
     sysinfothread.cpp \
     processlistThread.cpp \
     systeminfo.cpp \
-    processesinfo.cpp
+    processesinfo.cpp \
+    realtimeplot.cpp
 
 HEADERS  += mainwindow.h \
     sysinfothread.h \
     ThreadsConfig.h \
     processlistThread.h \
     systeminfo.h \
-    processesinfo.h
+    processesinfo.h \
+    realtimeplot.h
 
 FORMS    += mainwindow.ui

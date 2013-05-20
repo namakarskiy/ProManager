@@ -1,21 +1,33 @@
 #ifndef SYSTEMINFO_H
 #define SYSTEMINFO_H
-struct Sys
+
+#include <linux/sysinfo.h>
+#include <sys/sysinfo.h>
+#include <QDebug>
+
+struct SystemInformation
 {
-  int i;
+    int freeram;
+    int totalram;
+    int usedram;
+    int freeswap;
+    int usedswap;
+    int totalswap;
 };
 
 
-class SystemInfo
+class SystemInfo: public QObject
 {
+    Q_OBJECT
 private:
-    Sys sysInf;
 
 public:
-    SystemInfo();
-    Sys getSystemInfo();
+    explicit SystemInfo(QObject* parent=0);
+    void getSystemInfo();
     ~SystemInfo();
-
+signals:
+    void sendSystemInfo(SystemInformation);
+    void sendUsedRam(int);
 };
 
 #endif // SYSTEMINFO_H

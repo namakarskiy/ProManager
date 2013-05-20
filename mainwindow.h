@@ -6,6 +6,11 @@
 #include <QTimer>
 #include "sysinfothread.h"
 #include "processlistThread.h"
+#include "systeminfo.h"
+#include "processesinfo.h"
+#include <linux/sysinfo.h>
+#include <sys/sysinfo.h>
+#include "realtimeplot.h"
 
 
 
@@ -25,12 +30,22 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
     
-private:
+public:
     Ui::MainWindow *ui;
+
+private:
+    RealTimePlot* ram;
+    RealTimePlot* swap;
+
 
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+public slots:
+    void acceptSystemInfo(SystemInformation);
+signals:
+    void sendUsedRam(int);
+    void sendUsedSwap(int);
 };
 
 #endif // MAINWINDOW_H

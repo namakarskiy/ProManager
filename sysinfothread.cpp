@@ -8,8 +8,9 @@ sysInfoThread::sysInfoThread(QObject *parent) :
     connect(sysInfoTimer,SIGNAL(timeout()),
             this,SLOT(getSystemInfo()),Qt::DirectConnection);
     qDebug()<<"sysinfoTHread started";
-
+    inf = new SystemInfo;
     mutex.unlock();
+
 }
 
 void sysInfoThread::run()
@@ -30,6 +31,7 @@ sysInfoThread::~sysInfoThread()
 void sysInfoThread::getSystemInfo()
 {
     mutex.lock();
+    inf->getSystemInfo();
     qDebug()<<"ololol";
     mutex.unlock();
 }
