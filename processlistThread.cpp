@@ -1,24 +1,24 @@
-#include "processlist.h"
+#include "processlistThread.h"
 
-processList::processList(QObject *parent) :
+ processListThread::processListThread(QObject *parent) :
     QThread(parent)
 {
     mutex.lock();
     procListTimer = new QTimer();
     connect(procListTimer,SIGNAL(timeout()),
             this,SLOT(getProcessList()),Qt::DirectConnection);
-    qDebug()<<"proclist thread started";
+    qDebug()<<"processListThread started";
     mutex.unlock();
 
 }
 
-void processList::run()
+void processListThread::run()
 {
     procListTimer->start(1235);
     exec();
 }
 
-processList::~processList()
+processListThread::~processListThread()
 {
    mutex.lock();
     this->exit(0);
@@ -27,7 +27,7 @@ processList::~processList()
    mutex.unlock();
 }
 
-void processList::getProcessList()
+void processListThread::getProcessList()
 {
     mutex.lock();
     qDebug()<<"tutututu";

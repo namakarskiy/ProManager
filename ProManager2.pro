@@ -13,15 +13,18 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = ProManager2
 TEMPLATE = app
 
-
 SOURCES += main.cpp\
         mainwindow.cpp \
     sysinfothread.cpp \
-    processlist.cpp
+    processlistThread.cpp \
+    systeminfo.cpp \
+    processesinfo.cpp
 
 HEADERS  += mainwindow.h \
     sysinfothread.h \
-    processlist.h \
-    ThreadsConfig.h
+    ThreadsConfig.h \
+    processlistThread.h \
+    systeminfo.h \
+    processesinfo.h
 
 FORMS    += mainwindow.ui

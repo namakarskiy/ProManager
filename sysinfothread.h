@@ -1,18 +1,14 @@
 #ifndef SYINFOTHREAD_H
 #define SYINFOTHREAD_H
 
-#include <QThread>
-#include <QTimer>
-#include <QLibrary>
-#include <QDebug>
-#include <QMutex>
+#include "ThreadsConfig.h"
+#include "systeminfo.h"
 
 class sysInfoThread : public QThread
 {
     Q_OBJECT
 private:
     QTimer* sysInfoTimer;
-    QLibrary lgetinfo;
     QMutex mutex;
 
 public:

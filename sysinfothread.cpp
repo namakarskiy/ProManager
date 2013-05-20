@@ -8,6 +8,7 @@ sysInfoThread::sysInfoThread(QObject *parent) :
     connect(sysInfoTimer,SIGNAL(timeout()),
             this,SLOT(getSystemInfo()),Qt::DirectConnection);
     qDebug()<<"sysinfoTHread started";
+
     mutex.unlock();
 }
 

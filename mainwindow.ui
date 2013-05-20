@@ -24,7 +24,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -266,20 +266,8 @@
               </widget>
              </item>
             </layout>
-            <zorder>Used</zorder>
-            <zorder>Total</zorder>
-            <zorder>ram_free</zorder>
-            <zorder>ram_used</zorder>
-            <zorder>ram_total</zorder>
-            <zorder>horizontalSpacer_2</zorder>
-            <zorder>horizontalSpacer_3</zorder>
-            <zorder>horizontalSpacer_4</zorder>
-            <zorder>Free</zorder>
-            <zorder>horizontalSpacer_4</zorder>
+            <zorder></zorder>
             <zorder>qwtPlot</zorder>
-            <zorder>horizontalSpacer_5</zorder>
-            <zorder></zorder>
-            <zorder></zorder>
            </widget>
           </item>
           <item>
@@ -564,11 +552,6 @@
          </layout>
         </item>
        </layout>
-       <zorder>qwtPlot</zorder>
-       <zorder>ram_groupbox</zorder>
-       <zorder>swap_groupbox</zorder>
-       <zorder>qwtPlot</zorder>
-       <zorder>other_groupbox</zorder>
       </widget>
      </widget>
     </item>

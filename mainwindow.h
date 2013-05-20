@@ -5,7 +5,7 @@
 
 #include <QTimer>
 #include "sysinfothread.h"
-#include "processlist.h"
+#include "processlistThread.h"
 
 
 
@@ -25,17 +25,12 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
     
-public:
+private:
     Ui::MainWindow *ui;
-    //QTimer* sysInfoTimer;
-    // sysInfoThread* sysThread;
-    //processList* procThread;
+
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-
-
-
 };
 
 #endif // MAINWINDOW_H
