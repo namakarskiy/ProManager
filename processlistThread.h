@@ -1,7 +1,8 @@
 #ifndef PROCESSLIST_H
 #define PROCESSLIST_H
 #include "ThreadsConfig.h"
-#include "processesinfo.h"
+#include "procinfo.h"
+#include <QObject>
 
 
 class processListThread : public QThread
@@ -10,6 +11,8 @@ class processListThread : public QThread
 private:
     QTimer* procListTimer;
     QMutex mutex;
+public:
+    ProcInfo* info;
 
 public:
     explicit processListThread(QObject *parent = 0);

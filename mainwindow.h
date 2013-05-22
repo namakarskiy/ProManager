@@ -7,10 +7,12 @@
 #include "sysinfothread.h"
 #include "processlistThread.h"
 #include "systeminfo.h"
-#include "processesinfo.h"
+#include "procinfo.h"
 #include <linux/sysinfo.h>
 #include <sys/sysinfo.h>
 #include "realtimeplot.h"
+#include <QMutex>
+
 
 
 
@@ -29,6 +31,8 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+private:
+    QMutex mutex;
     
 public:
     Ui::MainWindow *ui;
@@ -43,6 +47,7 @@ public:
     ~MainWindow();
 public slots:
     void acceptSystemInfo(SystemInformation);
+    void acceptProcessList(QList<Process>*);
 signals:
     void sendUsedRam(int);
     void sendUsedSwap(int);

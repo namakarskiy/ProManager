@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>713</width>
+    <width>1015</width>
     <height>553</height>
    </rect>
   </property>
@@ -24,7 +24,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -42,6 +42,9 @@
           </item>
           <item>
            <widget class="QTreeWidget" name="treeWidget">
+            <property name="selectionMode">
+             <enum>QAbstractItemView::MultiSelection</enum>
+            </property>
             <property name="columnCount">
              <number>6</number>
             </property>
@@ -122,7 +125,7 @@
           <property name="title">
            <string>Ram Usage</string>
           </property>
-          <widget class="QWidget" name="">
+          <widget class="QWidget" name="layoutWidget">
            <property name="geometry">
             <rect>
              <x>18</x>
@@ -255,8 +258,6 @@
             </item>
            </layout>
           </widget>
-          <zorder></zorder>
-          <zorder>qwtPlot</zorder>
          </widget>
         </item>
         <item>
@@ -264,7 +265,7 @@
           <property name="title">
            <string>Swap Usage</string>
           </property>
-          <widget class="QWidget" name="">
+          <widget class="QWidget" name="layoutWidget">
            <property name="geometry">
             <rect>
              <x>17</x>
@@ -534,24 +535,13 @@
      </widget>
     </item>
    </layout>
-   <widget class="QWidget" name="">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>100</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_5"/>
-   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>713</width>
+     <width>1015</width>
      <height>25</height>
     </rect>
    </property>

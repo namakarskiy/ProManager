@@ -18,10 +18,11 @@ class RealTimePlot : public QwtPlot
 private:
         QwtPlotCurve *curve;
         QwtPlotDirectPainter *painter;
+        //QwtPlotSeriesItem<QPoint> data;
 
 
 public:        
-        void drawPoint(QPointF point);
+        void appendPoint(QPoint point);
         RealTimePlot();
 signals:
     

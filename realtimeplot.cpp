@@ -10,13 +10,16 @@ RealTimePlot::RealTimePlot()
         this->setAxisScale(QwtPlot::yLeft, 0, 1000);
 }
 
-void RealTimePlot::getData(int)
+void RealTimePlot::getData(int used)
 {
-
+   /*  double elapsed = (this -> dclock_elapsed());
+     QPoint point(elapsed,used); //формируем точку
+     this->appendPoint(point);//добавляем точку к кривой*/
 }
 
-void RealTimePlot::drawPoint(QPointF point)
+void RealTimePlot::appendPoint(QPoint point)
 {
+
 }
 
 

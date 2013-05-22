@@ -18,15 +18,15 @@ SOURCES += main.cpp\
     sysinfothread.cpp \
     processlistThread.cpp \
     systeminfo.cpp \
-    processesinfo.cpp \
-    realtimeplot.cpp
+    realtimeplot.cpp \
+    procinfo.cpp
 
 HEADERS  += mainwindow.h \
     sysinfothread.h \
     ThreadsConfig.h \
     processlistThread.h \
     systeminfo.h \
-    processesinfo.h \
-    realtimeplot.h
+    realtimeplot.h \
+    procinfo.h
 
 FORMS    += mainwindow.ui
