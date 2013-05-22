@@ -15,6 +15,7 @@ sysInfoThread::sysInfoThread(QObject *parent) :
 
 void sysInfoThread::run()
 {
+    inf->getOtherInfo();
     sysInfoTimer->start(1000);
     exec();
 }

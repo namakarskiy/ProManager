@@ -18,7 +18,6 @@ SOURCES += main.cpp\
     sysinfothread.cpp \
     processlistThread.cpp \
     systeminfo.cpp \
-    realtimeplot.cpp \
     procinfo.cpp
 
 HEADERS  += mainwindow.h \
@@ -26,7 +25,6 @@ HEADERS  += mainwindow.h \
     ThreadsConfig.h \
     processlistThread.h \
     systeminfo.h \
-    realtimeplot.h \
     procinfo.h
 
 FORMS    += mainwindow.ui

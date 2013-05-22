@@ -21,6 +21,11 @@ void SystemInfo::getSystemInfo()
     emit sendUsedRam(send.usedram);
 }
 
+void SystemInfo::getOtherInfo()
+{
+
+}
+
 SystemInfo::~SystemInfo()
 {
 }

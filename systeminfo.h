@@ -24,6 +24,7 @@ private:
 public:
     explicit SystemInfo(QObject* parent=0);
     void getSystemInfo();
+    void getOtherInfo();
     ~SystemInfo();
 signals:
     void sendSystemInfo(SystemInformation);

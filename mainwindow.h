@@ -10,7 +10,8 @@
 #include "procinfo.h"
 #include <linux/sysinfo.h>
 #include <sys/sysinfo.h>
-#include "realtimeplot.h"
+#include <QTreeWidgetItem>
+
 #include <QMutex>
 
 
@@ -38,8 +39,7 @@ public:
     Ui::MainWindow *ui;
 
 private:
-    RealTimePlot* ram;
-    RealTimePlot* swap;
+
 
 
 public:
@@ -48,9 +48,12 @@ public:
 public slots:
     void acceptSystemInfo(SystemInformation);
     void acceptProcessList(QList<Process>*);
+    void actionWithProcess(QTreeWidgetItem*,int);
+    void btnBackClicked();
 signals:
     void sendUsedRam(int);
     void sendUsedSwap(int);
+
 };
 
 #endif // MAINWINDOW_H
