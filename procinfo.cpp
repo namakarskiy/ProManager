@@ -38,20 +38,14 @@ void ProcInfo::getProcessList()
                 std::ifstream statmFile("statm");
                 if (!statmFile)
                 {
-                    qDebug()<<"not1";
+
                 }
                 int garbage;
                 statmFile>>tmp.size>>tmp.resident>>tmp.share>>garbage
                          >>garbage>>tmp.lrs;//все поля которые содержат информацию о памяти, измеряются в страницач(4096 байт)
 
                 statmFile.close();
-
                 list.append(tmp);
-                //qDebug()<<tmp.pid<<tmp.name<<tmp.state<<tmp.ppid;
-
-                //procList.clear();
-
-
            }
         }
     emit sendProcessList(&list);

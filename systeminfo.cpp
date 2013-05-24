@@ -17,6 +17,8 @@ void SystemInfo::getSystemInfo()
     send.freeswap = s1.freeswap*s1.mem_unit/1024;
     send.totalswap = s1.totalswap*s1.mem_unit/1024;
     send.usedswap = (s1.totalswap-s1.freeswap)*s1.mem_unit/1024;
+    send.uptime =  s1.uptime/60;
+    send.page = s1.mem_unit;
     emit sendSystemInfo(send);
     emit sendUsedRam(send.usedram);
 }

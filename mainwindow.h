@@ -11,20 +11,12 @@
 #include <linux/sysinfo.h>
 #include <sys/sysinfo.h>
 #include <QTreeWidgetItem>
-
 #include <QMutex>
-
-
-
-
-#define PID_COLUMN 0
-#define NAME_COLUMN 1
-#define STATE_COLUMN 2
-#define PPID_COLUMN 3
-#define NICE_COLUMN 4
-#define SIZE_COLUMN 5
-
-
+#include <QDialog>
+#include <signal.h>
+#include <sys/types.h>
+#include <errno.h>
+#include <cstring>
 namespace Ui {
 class MainWindow;
 }
@@ -34,6 +26,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 private:
     QMutex mutex;
+    QDialog error;
     
 public:
     Ui::MainWindow *ui;
@@ -50,6 +43,8 @@ public slots:
     void acceptProcessList(QList<Process>*);
     void actionWithProcess(QTreeWidgetItem*,int);
     void btnBackClicked();
+    void btnKillClicked();
+    void btnTerminateClicked();
 signals:
     void sendUsedRam(int);
     void sendUsedSwap(int);

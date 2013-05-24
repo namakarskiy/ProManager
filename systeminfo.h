@@ -13,6 +13,8 @@ struct SystemInformation
     int freeswap;
     int usedswap;
     int totalswap;
+    int uptime;
+    int page;
 };
 
 

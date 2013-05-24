@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
   mutex.lock();
+  //this->setWindowTitle("ProManager");
     QStringList header;
     header<<"pid"<<"name"<<"state"<<"ppid"<<"pgrp"<<"size,KiB"<<"resident,KiB"<<"share,KiB"<<"lrs,KiB";
     ui->setupUi(this);
@@ -19,6 +20,11 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->btnBack,SIGNAL(clicked()),
             this,SLOT(btnBackClicked()));
 
+    connect(ui->btnKill,SIGNAL(clicked()),
+            this,SLOT(btnKillClicked()));
+
+    connect(ui->btnStop,SIGNAL(clicked()),
+            this,SLOT(btnTerminateClicked()));
     ui->treeWidget->setColumnWidth(0,75);
     ui->treeWidget->setColumnWidth(1,175);
   mutex.unlock();
@@ -28,7 +34,6 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     mutex.lock();
-
     delete ui;
     mutex.unlock();
 }
@@ -42,19 +47,17 @@ void MainWindow::acceptSystemInfo(SystemInformation t)
     ui->ram_free->setText(QString::number(t.freeram));
     ui->ram_used->setText(QString::number(t.usedram));
     ui->ram_total->setText(QString::number(t.totalram));
-    emit sendUsedRam(t.usedram);
-    emit sendUsedSwap(t.usedswap);
+    ui->v_uptime->setText(QString::number(t.uptime));
+    ui->v_pagesize->setText(QString::number(t.page));
     mutex.unlock();
 }
 
 void MainWindow::acceptProcessList(QList<Process> *list)
 {
-    if(ui->treeWidget->selectedItems().count() == 0)
-    {
         int i=0;
         ui->treeWidget->clear();
-        qDebug()<<ui->treeWidget->selectedItems().count();
         QTreeWidgetItem *item=0;
+        ui->proc_count->setText(QString::number(list->count()));
         while(i<list->count())
         {
             item = new QTreeWidgetItem(ui->treeWidget);
@@ -77,8 +80,6 @@ void MainWindow::acceptProcessList(QList<Process> *list)
 
             i++;
         }
-    }
-    else qDebug()<<"item selected";
 }
 
 void MainWindow::actionWithProcess(QTreeWidgetItem *item, int)
@@ -93,13 +94,45 @@ void MainWindow::actionWithProcess(QTreeWidgetItem *item, int)
     ui->resident_value->setText(item->text(6));
     ui->share_value->setText(item->text(7));
     ui->lrs_value->setText(item->text(8));
-    qDebug()<<"I`m clicked";
-    qDebug()<<item->text(0);
 }
 
 void MainWindow::btnBackClicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::btnKillClicked()
+{
+    int ret;
+    extern int errno;
+    ret = kill(ui->pid_value->text().toInt(),SIGKILL);
+    if(0 == ret)
+    {
+        ui->statusBar->showMessage("process killed",4000);
+    }
+    else
+    {
+        QString err;
+        err = strerror(errno);
+        ui->statusBar->showMessage(QString::fromUtf8(err.toAscii()),4000);
+    }
+}
+
+void MainWindow::btnTerminateClicked()
+{
+    int ret;
+    extern int errno;
+    ret = kill(ui->pid_value->text().toInt(),SIGTERM);
+    if(0 == ret)
+    {
+        ui->statusBar->showMessage("process terminated",4000);
+    }
+    else
+    {
+        QString err;
+        err = strerror(errno);
+        ui->statusBar->showMessage(QString::fromUtf8(err.toAscii()),4000);
+    }
 }
 
 

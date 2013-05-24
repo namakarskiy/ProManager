@@ -9,7 +9,6 @@
     connect(procListTimer,SIGNAL(timeout()),
             this,SLOT(getProcessList()),Qt::DirectConnection);
     info = new ProcInfo;
-    qDebug()<<"processListThread started";
     mutex.unlock();
 
 }
@@ -33,7 +32,6 @@ processListThread::~processListThread()
 void processListThread::getProcessList()
 {
     mutex.lock();
-    qDebug()<<"tutututu";
     info->getProcessList();
     mutex.unlock();
 }
